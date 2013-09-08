@@ -1,5 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 AUTOMAKE_OPTIONS = foreign check-news
+ACLOCAL_AMFLAGS  = -I m4
 
 SUBDIRS = liblcdf libefont @SELECTED_SUBDIRS@
 DIST_SUBDIRS = liblcdf libefont cfftot1 mmafm mmpfb otfinfo otftotfm \
