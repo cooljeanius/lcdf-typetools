@@ -3,6 +3,7 @@
 
 m4_define_default([kpse_indent_26],[26])[]dnl
 m4_define([kpse_lcdf_typetools_progs],[cfftot1 mmafm mmpfb otfinfo otftotfm t1dotlessj t1lint t1rawafm t1reencode t1testpage ttftotype42])[]dnl
+dnl# don't autoupdate this; it breaks it:
 AC_FOREACH([Kpse_Prog], kpse_lcdf_typetools_progs,
            [AC_ARG_ENABLE(Kpse_Prog,
                           AS_HELP_STRING([--disable-]Kpse_Prog,

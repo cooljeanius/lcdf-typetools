@@ -15,11 +15,11 @@ AM_INIT_AUTOMAKE([foreign check-news -Wall])
 AM_MAINTAINER_MODE
 AM_PROG_INSTALL_STRIP
 
-if test "x$CC" = "x"; then
-	test -z "$CC"
+if test "x${CC}" = "x"; then
+	test -z "${CC}"
 	AC_PROG_CC
 else
-	test ! -z "$CC" && export CC
+	test ! -z "${CC}" && export CC
 	AC_SUBST([CC])
 fi
 AC_PROG_CPP
@@ -128,6 +128,14 @@ AC_LANG_PUSH([C])
 AC_HEADER_STDBOOL dnl# Calls AC_CHECK_HEADER_STDBOOL
 AC_HEADER_DIRENT
 AC_CHECK_HEADERS([ctype.h fcntl.h limits.h stddef.h sys/time.h sys/wait.h])
+if test "x${ac_cv_header_inttypes_h}" = "x"; then
+  test -z "${ac_cv_header_inttypes_h}"
+  AC_CHECK_HEADERS([inttypes.h])
+fi
+if test "x${ac_cv_header_unistd_h}" = "x"; then
+  test -z "${ac_cv_header_unistd_h}"
+  AC_CHECK_HEADERS([unistd.h])
+fi
 AC_LANG_POP
 
 dnl#
