@@ -6,6 +6,8 @@ SUBDIRS = liblcdf libefont @SELECTED_SUBDIRS@
 DIST_SUBDIRS = liblcdf libefont cfftot1 mmafm mmpfb otfinfo otftotfm \
 	t1dotlessj t1lint t1rawafm t1reencode t1testpage ttftotype42
 
+DISTCLEANFILES = *~ autoscan.log m4/*~
+
 EXTRA_DIST = \
 	ONEWS \
 	lcdf-typetools.spec \
@@ -79,7 +81,14 @@ versionize:
 	perl -pi -e 's/^Version: [\d.ab]+$$/Version: $(VERSION)/;' $(srcdir)/lcdf-typetools.spec
 
 dist-hook:
-	if test -f $(srcdir)/make-glyphtounicode.pl; then (cd $(srcdir); perl make-glyphtounicode.pl) > $(distdir)/glyphtounicode.tex; elif test -f $(srcdir)/glyphtounicode.tex; then cp $(srcdir)/glyphtounicode.tex $(distdir); fi
+	if test -f $(srcdir)/make-glyphtounicode.pl; then \
+	  (cd $(srcdir); perl make-glyphtounicode.pl) > $(distdir)/glyphtounicode.tex; \
+	elif test -f $(srcdir)/glyphtounicode.tex; then \
+	  cp $(srcdir)/glyphtounicode.tex $(distdir); \
+	fi
+
+distclean-local:
+	-rm -rf autom4te.cache || rmdir autom4te.cache 
 
 $(srcdir)/glyphtounicode.tex: $(srcdir)/glyphlist.txt $(srcdir)/texglyphlist.txt $(srcdir)/texglyphlist-g2u.txt $(srcdir)/make-glyphtounicode.pl
 	cd $(srcdir); perl make-glyphtounicode.pl > glyphtounicode.tex

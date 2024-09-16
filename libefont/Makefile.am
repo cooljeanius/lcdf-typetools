@@ -41,3 +41,6 @@ libefont_a_LIBADD = @TEMPLATE_OBJS@
 CLEANFILES = @TEMPLATE_OBJS@
 
 AM_CPPFLAGS = -I$(srcdir)/../include
+
+distclean-local:
+	-rm -rf .deps || rmdir .deps

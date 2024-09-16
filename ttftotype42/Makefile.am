@@ -12,3 +12,6 @@ AM_CPPFLAGS = -I$(srcdir)/../include
 CLEANFILES = @TEMPLATE_OBJS@
 
 EXTRA_DIST = ttftotype42.1
+
+distclean-local:
+	-rm -rf .deps || rmdir .deps

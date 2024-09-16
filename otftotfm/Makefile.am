@@ -32,3 +32,6 @@ endif have_kpathsea
 
 ## Rebuild libkpathsea in a TeX Live build
 @KPATHSEA_RULE@
+
+distclean-local:
+	-rm -rf .deps || rmdir .deps

@@ -29,3 +29,6 @@ CLEANFILES = @TEMPLATE_OBJS@
 AM_CPPFLAGS = -I$(srcdir)/../include
 
 EXTRA_DIST = fixlibc.c
+
+distclean-local:
+	-rm -rf .deps || rmdir .deps

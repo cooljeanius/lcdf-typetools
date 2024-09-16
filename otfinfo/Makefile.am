@@ -14,3 +14,6 @@ AM_CPPFLAGS = -I$(srcdir)/../include
 CLEANFILES = @TEMPLATE_OBJS@
 
 EXTRA_DIST = otfinfo.1
+
+distclean-local:
+	-rm -rf .deps || rmdir .deps

@@ -16,9 +16,12 @@ autoconf.h.in
 autom4te*
 cfftot1/cfftot1
 compile
+confdefs.h
 config.*
 configure
 configure.scan
+conftest*
+conf*/*.awk
 depcomp
 glyphtounicode.tex
 install-sh
